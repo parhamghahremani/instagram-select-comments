@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Instagram Bulk Select (Comments, Likes, Story Replies)
 // @namespace    http://tampermonkey.net/
-// @version      5.1
+// @version      5.1.0
 // @description  Instant OneShot, pause/resume anytime, zero duplicates, max performance for all activity pages.
 // @author       You
 // @match        https://www.instagram.com/your_activity/interactions/comments*
@@ -10,6 +10,8 @@
 // @icon         https://www.instagram.com/favicon.ico
 // @grant        none
 // @run-at       document-start
+// @downloadURL  https://github.com/parhamghahremani/userscripts/raw/main/instagram-select-comments/versions/instagram-select-comments-v5.1.0.user.js
+// @updateURL    https://github.com/parhamghahremani/userscripts/raw/main/instagram-select-comments/versions/instagram-select-comments-v5.1.0.user.js
 // ==/UserScript==
 
 (function() {
@@ -47,8 +49,8 @@
     let scrollContainer = null;
     let scrollAttempts = 0;
     let performanceMode = false;
-    let processedInSession = new Set();
-    let currentBatchPromise = null; // For cancellation
+    const processedInSession = new Set();
+    const currentBatchPromise = null; // For cancellation
 
     // ============ LOGGING ============
     function log(...args) {
@@ -438,9 +440,9 @@
     }
 
     function getButtonIcon() {
-        if (isRunning && !isPaused) return `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><rect x="5" y="5" width="14" height="14" rx="2" fill="white"/></svg>`;
-        if (isPaused) return `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><rect x="6" y="4" width="4" height="16" fill="white"/><rect x="14" y="4" width="4" height="16" fill="white"/></svg>`;
-        return `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2"/><polyline points="9 12 13 16 21 8" opacity="0.7"/></svg>`;
+        if (isRunning && !isPaused) return '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><rect x="5" y="5" width="14" height="14" rx="2" fill="white"/></svg>';
+        if (isPaused) return '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><rect x="6" y="4" width="4" height="16" fill="white"/><rect x="14" y="4" width="4" height="16" fill="white"/></svg>';
+        return '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2"/><polyline points="9 12 13 16 21 8" opacity="0.7"/></svg>';
     }
 
     function updateButtonColor() {
@@ -558,10 +560,10 @@
 
         menu.querySelector('#ig-mode-desc').textContent =
             mode === 'continuous' ? 'Continuous: scrolls & selects until stopped.'
-            : 'One Shot: selects only visible items instantly (no scroll).';
+                : 'One Shot: selects only visible items instantly (no scroll).';
 
         const oneshotBtn = menu.querySelector('#ig-btn-oneshot');
-        if (oneshotBtn) oneshotBtn.textContent = `Run One Shot (${batchSize})`;
+        if (oneshotBtn) oneshotBtn.textContent = 'Run One Shot (' + batchSize + ')';
 
         // Show/hide pause/stop during operation
         const pauseBtn = menu.querySelector('#ig-btn-pause-resume');

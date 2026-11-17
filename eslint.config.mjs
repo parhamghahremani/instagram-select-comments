@@ -14,6 +14,8 @@ export default [
         console: 'readonly',
         setTimeout: 'readonly',
         clearTimeout: 'readonly',
+        setInterval: 'readonly',
+        clearInterval: 'readonly',
         requestAnimationFrame: 'readonly',
         cancelAnimationFrame: 'readonly',
         requestIdleCallback: 'readonly',
@@ -26,6 +28,8 @@ export default [
         IntersectionObserver: 'readonly',
         history: 'readonly',
         localStorage: 'readonly',
+        MouseEvent: 'readonly',
+        Promise: 'readonly',
       },
     },
     rules: {
