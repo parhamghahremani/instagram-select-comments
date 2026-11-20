@@ -34,7 +34,7 @@ function build() {
     const content = fs.readFileSync(SRC_FILE, "utf-8");
 
     // Create versioned release
-    const versionedFile = path.join(VERSIONS_DIR, `instagram-select-comments-v${version}.user.js`);
+    const versionedFile = path.join(VERSIONS_DIR, `v${version}.user.js`);
     fs.writeFileSync(versionedFile, content);
     console.log(`Created versioned release: ${versionedFile}`);
 
