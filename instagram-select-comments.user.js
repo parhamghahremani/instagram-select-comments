@@ -10,8 +10,8 @@
 // @icon         https://www.instagram.com/favicon.ico
 // @grant        none
 // @run-at       document-start
-// @downloadURL  https://github.com/parhamghahremani/userscripts/raw/main/instagram-select-comments/versions/instagram-select-comments-v5.1.0.user.js
-// @updateURL    https://github.com/parhamghahremani/userscripts/raw/main/instagram-select-comments/versions/instagram-select-comments-v5.1.0.user.js
+// @downloadURL  https://raw.githubusercontent.com/parhamghahremani/instagram-select-comments/main/dist/instagram-select-comments.user.js
+// @updateURL    https://raw.githubusercontent.com/parhamghahremani/instagram-select-comments/main/dist/instagram-select-comments.user.js
 // ==/UserScript==
 
 (function() {

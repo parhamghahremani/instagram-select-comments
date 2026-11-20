@@ -1,6 +1,6 @@
 /**
  * Build script for Instagram Bulk Select
- * Creates versioned releases in versions/ folder
+ * Creates versioned releases in versions/ folder and updates dist/
  */
 
 import fs from "fs";
@@ -9,6 +9,9 @@ import path from "path";
 const SRC_FILE = "src/instagram-select-comments.user.js";
 const VERSIONS_DIR = "versions";
 const DIST_DIR = "dist";
+const DIST_FILE = "instagram-select-comments.user.js";
+const REPO = "instagram-select-comments";
+const OWNER = "parhamghahremani";
 
 function readVersion() {
     const content = fs.readFileSync(SRC_FILE, "utf-8");
@@ -24,7 +27,6 @@ function ensureDir(dir) {
 
 function build() {
     const version = readVersion();
-    const timestamp = new Date().toISOString().slice(0, 10).replace(/-/g, "");
 
     ensureDir(VERSIONS_DIR);
     ensureDir(DIST_DIR);
@@ -36,24 +38,21 @@ function build() {
     fs.writeFileSync(versionedFile, content);
     console.log(`Created versioned release: ${versionedFile}`);
 
-    // Create dist file (latest)
-    const distFile = path.join(DIST_DIR, "instagram-select-comments.user.js");
-    fs.writeFileSync(distFile, content);
-    console.log(`Created dist file: ${distFile}`);
-
-    // Update download/update URLs in dist file to point to versioned release
+    // Create dist file (latest) with stable update URLs pointing to dist/
+    const distFile = path.join(DIST_DIR, DIST_FILE);
     let distContent = content
         .replace(
             /@downloadURL\s+.*/,
-            `@downloadURL  https://github.com/parhamghahremani/userscripts/raw/main/instagram-select-comments/versions/instagram-select-comments-v${version}.user.js`
+            `@downloadURL  https://raw.githubusercontent.com/${OWNER}/${REPO}/main/dist/${DIST_FILE}`
         )
         .replace(
             /@updateURL\s+.*/,
-            `@updateURL    https://github.com/parhamghahremani/userscripts/raw/main/instagram-select-comments/versions/instagram-select-comments-v${version}.user.js`
+            `@updateURL    https://raw.githubusercontent.com/${OWNER}/${REPO}/main/dist/${DIST_FILE}`
         );
 
     fs.writeFileSync(distFile, distContent);
-    console.log(`Updated dist file with versioned URLs`);
+    console.log(`Created dist file: ${distFile}`);
+    console.log(`Updated dist file with stable URLs`);
 
     console.log(`\nBuild complete! Version: ${version}`);
     console.log(`Files:`);
