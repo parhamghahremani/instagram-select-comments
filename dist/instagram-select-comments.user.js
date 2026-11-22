@@ -9,9 +9,9 @@
 // @match        https://www.instagram.com/your_activity/interactions/story_replies*
 // @icon         https://www.instagram.com/favicon.ico
 // @grant        none
-// @run-at       document-start
 // @downloadURL  https://raw.githubusercontent.com/parhamghahremani/instagram-select-comments/main/dist/instagram-select-comments.user.js
 // @updateURL    https://raw.githubusercontent.com/parhamghahremani/instagram-select-comments/main/dist/instagram-select-comments.user.js
+// @run-at       document-start
 // ==/UserScript==
 
 (function() {

@@ -3,7 +3,7 @@
 **Project**: `instagram-select-comments`  
 **Canonical Name**: `instagram-select-comments`  
 **Userscript File**: `src/instagram-select-comments.user.js` (built to `dist/` and `versions/`)  
-**GitHub Repo**: `parhamghahremani/instagram-select-comments` (Private)  
+**GitHub Repo**: `parhamghahremani/instagram-select-comments` (Public)  
 **Current Version**: 5.1.0  
 **Target**: Firefox Desktop + Firefox Android  
 **Site**: `https://www.instagram.com/your_activity/interactions/*`
@@ -183,7 +183,7 @@ Pre-change snapshot before each logical batch:
 1. **Never modify sibling projects** — Only touch `instagram-select-comments/`
 2. **Source of truth** = `src/instagram-select-comments.user.js`
 3. **Version consistency**: `@version` in source = `package.json` = Git tag = CHANGELOG
-4. **Private GitHub repo** — Never make public without explicit permission
+4. **Public GitHub repo** — Public for Tampermonkey auto-update compatibility
 5. **Sync only after approval** — Push after manual test + user go-ahead
 6. **Persian communication** — All user messages in Persian; code/docs in English
 7. **No automated test suites** — Playwright for research only; user tests manually
@@ -194,7 +194,7 @@ Pre-change snapshot before each logical batch:
 
 - **Version**: 5.1.0 (stable)
 - **Git**: Initialized, ready for commit
-- **GitHub**: Private repo to be created at `parhamghahremani/instagram-select-comments`
+- **GitHub**: Public repo at `parhamghahremani/instagram-select-comments`
 - **Documentation**: Complete (15 files including docs/)
 - **Backups**: Directory structure created, manifest ready
 - **Next**: Initial commit, npm install, test, build, manual test, push
